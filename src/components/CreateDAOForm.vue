@@ -18,7 +18,7 @@
       </el-form-item>
 
       <el-form-item label="Players">
-        <el-table :data="form.players">
+        <el-table :data="form.players" empty-text="Add players to below">
           <el-table-column prop="name" label="Name"></el-table-column>
           <el-table-column prop="height" label="Height"></el-table-column>
           <el-table-column prop="number" label="Jersey Number"></el-table-column>
@@ -66,11 +66,7 @@ export default {
       form: {
         name: '',
         symbol: '',
-        players: [{
-          name: 'Michael Jordan',
-          height: `6'6"`,
-          number: 23,
-        }],
+        players: [],
       },
       player: {
         name: '',

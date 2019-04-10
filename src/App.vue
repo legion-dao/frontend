@@ -3,8 +3,10 @@
     <el-container>
       <el-header id="nav">
         <el-menu :router="true" :default-active="$route.path" mode="horizontal">
+          <el-menu-item class="logo-item"></el-menu-item>
+
           <el-menu-item index="/">
-            <router-link to="/">Home</router-link>
+            <router-link to="/">About</router-link>
           </el-menu-item>
 
           <el-menu-item index="/create-dao">
@@ -42,4 +44,12 @@ export default {
 #nav a {
   text-decoration: none;
 } 
+
+#nav .logo-item {
+  width: 250px;
+  background-image: url('./assets/logo-text.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 </style>
