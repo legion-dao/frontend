@@ -2,7 +2,7 @@
   <el-card>
     <el-form ref="form" :model="form" label-width="160px">
 
-      <el-form-item label="Association Name">
+      <el-form-item label="Organization Name">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
 
@@ -10,12 +10,12 @@
         <el-input v-model="form.symbol"></el-input>
       </el-form-item>
 
-      <el-form-item label="League">
+      <!-- <el-form-item label="League">
         <el-select v-model="form.region" placeholder="please select your league">
           <el-option label="NBA" value="nba"></el-option>
           <el-option label="NCAA" value="ncaa"></el-option>
         </el-select>
-      </el-form-item>
+      </el-form-item> -->
 
       <el-form-item label="Players">
         <el-table :data="form.players" empty-text="Add players to below">
@@ -59,6 +59,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'CreateDAOForm',
   data() {
@@ -76,8 +78,8 @@ export default {
     }
   },
   methods: {
-    onSubmit() {
-      console.log('submit!');
+    async onSubmit() {
+      axios.post('http://localhost:3000/create-dao', this.form);
     },
     addPlayer() {
       if (this.player.name && this.player.height && this.player.number) {
