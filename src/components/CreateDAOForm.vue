@@ -24,7 +24,9 @@
           <el-table-column prop="number" label="Jersey Number"></el-table-column>
           <el-table-column>
             <template slot-scope="scope">
-              <el-button @click="removePlayer(scope.$index)" type="text" size="small">Remove Player</el-button>
+              <el-button @click="removePlayer(scope.$index)" type="text" size="small">
+                Remove Player
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -52,7 +54,7 @@
 
       <el-form-item>
         <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button>Cancel</el-button>
+        <el-button @click="resetForm">Cancel</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -75,11 +77,25 @@ export default {
         height: '',
         number: null,
       },
-    }
+    };
   },
   methods: {
+    resetForm() {
+      this.form = {
+        name: '',
+        symbol: '',
+        players: [],
+      };
+
+      this.player = {
+        name: '',
+        height: '',
+        number: null,
+      };
+    },
     async onSubmit() {
       axios.post('http://localhost:3000/create-dao', this.form);
+      this.resetForm();
     },
     addPlayer() {
       if (this.player.name && this.player.height && this.player.number) {
@@ -94,7 +110,7 @@ export default {
     },
     removePlayer(playerIndex) {
       this.form.players = this.form.players.filter((player, index) => index !== playerIndex);
-    }
-  }
-}
+    },
+  },
+};
 </script>

@@ -28,9 +28,9 @@ export default {
   data() {
     return {
       activeIndex: '/',
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style>
@@ -43,7 +43,7 @@ export default {
 
 #nav a {
   text-decoration: none;
-} 
+}
 
 #nav .logo-item {
   width: 250px;
