@@ -7,31 +7,31 @@
 
           <el-submenu>
             <template slot="title">
-              <img alt="Basketball" src="./assets/icons/basketball.svg">
+              <Basketball />
             </template>
 
             <el-menu-item index="2-1" class="sport-icon">
-              <img alt="Basketball" src="./assets/icons/basketball.svg">
+              <Basketball />
             </el-menu-item>
 
             <el-menu-item index="2-2" class="sport-icon">
-              <img alt="Baseball" src="./assets/icons/baseball.svg">
+              <Baseball />
             </el-menu-item>
 
             <el-menu-item index="2-3" class="sport-icon">
-              <img alt="Soccer" src="./assets/icons/soccer.svg">
+              <Soccer />
             </el-menu-item>
 
             <el-menu-item index="2-4" class="sport-icon">
-              <img alt="Football" src="./assets/icons/football.svg">
+              <Football />
             </el-menu-item>
 
             <el-menu-item index="2-5" class="sport-icon">
-              <img alt="Hockey" src="./assets/icons/hockey.svg">
+              <Hockey />
             </el-menu-item>
 
             <el-menu-item index="2-6" class="sport-icon">
-              <img alt="Volleyball" src="./assets/icons/volleyball.svg">
+              <Volleyball />
             </el-menu-item>
           </el-submenu>
 
@@ -65,8 +65,23 @@
 </template>
 
 <script>
+import Basketball from './assets/icons/basketball.svg';
+import Baseball from './assets/icons/baseball.svg';
+import Soccer from './assets/icons/soccer.svg';
+import Football from './assets/icons/football.svg';
+import Hockey from './assets/icons/hockey.svg';
+import Volleyball from './assets/icons/volleyball.svg';
+
 export default {
   name: 'app',
+  components: {
+    Basketball,
+    Baseball,
+    Soccer,
+    Football,
+    Hockey,
+    Volleyball,
+  },
   data() {
     return {
       activeIndex: '/',
@@ -80,7 +95,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #270059;
 }
 
 #nav a {
@@ -97,5 +112,14 @@ export default {
 
 .el-menu--horizontal .el-menu--popup {
   min-width: 50px !important;
+  max-width: 50px !important;
+}
+
+.sport-icon {
+  height: 100%;
+}
+
+.sport-icon:hover {
+  fill: #7600F2;
 }
 </style>

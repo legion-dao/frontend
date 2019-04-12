@@ -26,6 +26,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-cli-plugin-element": "^1.0.1",
+    "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.5.21"
   }
 }
