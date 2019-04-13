@@ -8,7 +8,7 @@
       </el-col>
     </el-row>
 
-    <el-table :data="daos" stripe>
+    <el-table :data="daos" stripe @row-click="navigateToDAO">
       <el-table-column prop="name" label="Name" />
       <el-table-column prop="symbol" label="Symbol" />
 
@@ -47,6 +47,9 @@ export default {
     navigateToCreateDAO() {
       this.$router.push('create-dao');
     },
+    navigateToDAO(row) {
+      this.$router.push(`daos/${row.name}`);
+    }
   },
 };
 </script>

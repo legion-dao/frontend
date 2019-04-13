@@ -94,8 +94,8 @@ export default {
       };
     },
     async onSubmit() {
-      axios.post('http://localhost:3000/create-dao', this.form);
-      this.resetForm();
+      await axios.post('http://localhost:3000/create-dao', this.form);
+      this.$router.push(`/daos/${this.form.name}`);
     },
     addPlayer() {
       if (this.player.name && this.player.height && this.player.number) {

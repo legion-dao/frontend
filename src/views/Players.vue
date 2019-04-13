@@ -12,7 +12,12 @@
       <el-table-column prop="name" label="Name" />
       <el-table-column prop="height" label="Height" />
       <el-table-column prop="number" label="Number" />
-      <el-table-column prop="dao" label="DAO" />
+
+      <el-table-column label="DAO">
+        <template slot-scope="scope">
+          <router-link :to="`daos/${scope.row.dao}`">{{scope.row.dao}}</router-link>
+        </template>
+      </el-table-column>
 
       <el-table-column label="Token ID">
         <template slot-scope="scope">
