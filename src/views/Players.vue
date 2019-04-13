@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-row>
-      <el-col>
-        <el-button>
+    <el-row type="flex" justify="end">
+      <el-col :offset="24">
+        <el-button type="primary">
           Scout New Player
         </el-button>
       </el-col>
