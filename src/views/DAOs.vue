@@ -2,20 +2,19 @@
   <el-card>
     <el-row type="flex" justify="end">
       <el-col :offset="24">
-        <el-button type="primary">
-          Scout New Player
+        <el-button type="primary" v-on:click="navigateToCreateDAO">
+          Create DAO
         </el-button>
       </el-col>
     </el-row>
 
-    <el-table :data="players" stripe>
+    <el-table :data="daos" stripe>
       <el-table-column prop="name" label="Name" />
-      <el-table-column prop="height" label="Height" />
-      <el-table-column prop="number" label="Number" />
+      <el-table-column prop="symbol" label="Symbol" />
 
-      <el-table-column label="Token ID">
+      <el-table-column label="Token Address">
         <template slot-scope="scope">
-          <span v-if="scope.row.tokenId">{{scope.row.tokenId}}</span>
+          <span v-if="scope.row.tokenAddress">{{scope.row.tokenAddress}}</span>
           <i v-else class="el-icon-loading" />
         </template>
       </el-table-column>
@@ -34,15 +33,20 @@
 import axios from 'axios';
 
 export default {
-  name: 'Players',
+  name: 'DAOs',
   data() {
     return {
-      players: [],
+      daos: [],
     };
   },
   async mounted() {
-    const { data } = await axios.get('http://localhost:3000/players');
-    this.players = data;
+    const { data } = await axios.get('http://localhost:3000/daos');
+    this.daos = data;
+  },
+  methods: {
+    navigateToCreateDAO() {
+      this.$router.push('create-dao');
+    },
   },
 };
 </script>

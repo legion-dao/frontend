@@ -15,6 +15,41 @@
       <el-main>
         <el-row type="flex" justify="center" align="middle" class="section">
           <el-col :span="20">
+            <h1>GET THE BENEFITS OF THE DAO</h1>
+
+            <el-row type="flex" justify="center" align="middle" :gutter="250">
+              <el-col>
+                <Governance class="icon" />
+                <h3>Blockchain Governance</h3>
+                <p>
+                  Decentralized governance based on Ethereum smart contracts
+                  enables faultless execution of crowd decisions.
+                </p>
+              </el-col>
+
+              <el-col>
+                <Cooperation class="icon" />
+                <h3>Programmatic Cooperation</h3>
+                <p>
+                  Crypto-economic incentive design at the individual level empowers
+                  frictionless cooperation at the collective level.
+                </p>
+              </el-col>
+
+              <el-col>
+                <Security class="icon" />
+                <h3>Security Focus</h3>
+                <p>
+                  Leverages the battle-tested OpenZeppelin library for industry
+                  standard contract security and best practices.
+                </p>
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+
+        <el-row type="flex" justify="center" align="middle" class="section">
+          <el-col :span="20">
             <el-row type="flex" justify="center" align="middle">
               <el-col :span="10" :style="{marginBottom: '40px'}">
                 <h1>FOR THE ORG</h1>
@@ -117,42 +152,6 @@
                 <p>
                   Get rewarded for great lineup ideas! Propose lineups for gameday.
                   If your proposal meets quorum, you'll see the lineup you picked on the court.
-                </p>
-              </el-col>
-            </el-row>
-          </el-col>
-        </el-row>
-
-
-        <el-row type="flex" justify="center" align="middle" class="section">
-          <el-col :span="20">
-            <h1>GET THE BENEFITS OF THE DAO</h1>
-
-            <el-row type="flex" justify="center" align="middle" :gutter="250">
-              <el-col>
-                <Governance class="icon" />
-                <h3>Blockchain Governance</h3>
-                <p>
-                  Decentralized governance based on Ethereum smart contracts
-                  enables faultless execution of crowd decisions.
-                </p>
-              </el-col>
-
-              <el-col>
-                <Cooperation class="icon" />
-                <h3>Programmatic Cooperation</h3>
-                <p>
-                  Crypto-economic incentive design at the individual level empowers
-                  frictionless cooperation at the collective level.
-                </p>
-              </el-col>
-
-              <el-col>
-                <Security class="icon" />
-                <h3>Security Focus</h3>
-                <p>
-                  Leverages the battle-tested OpenZeppelin library for industry
-                  standard contract security and best practices.
                 </p>
               </el-col>
             </el-row>
