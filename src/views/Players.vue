@@ -1,5 +1,13 @@
 <template>
   <div>
+    <el-row>
+      <el-col>
+        <el-button>
+          Scout New Player
+        </el-button>
+      </el-col>
+    </el-row>
+
     <el-table :data="players" stripe>
       <el-table-column prop="name" label="Name" />
       <el-table-column prop="height" label="Height" />
