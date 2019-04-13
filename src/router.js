@@ -14,7 +14,12 @@ export default new Router({
     {
       path: '/daos',
       name: 'daos',
-      component: () => import(/* webpackChunkName: "players" */ './views/DAOs.vue'),
+      component: () => import(/* webpackChunkName: "daos" */ './views/DAOs.vue'),
+    },
+    {
+      path: '/daos/:id',
+      name: 'dao',
+      component: () => import(/* webpackChunkName: "dao" */ './views/DAO.vue'),
     },
     {
       path: '/players',

@@ -2,10 +2,10 @@
   <div id="app">
     <el-container>
       <el-header id="nav">
-        <el-menu :router="true" :default-active="$route.path" mode="horizontal">
+        <el-menu :router="true" :default-active="activeIndex" mode="horizontal">
           <el-menu-item class="logo-item"></el-menu-item>
 
-          <el-submenu>
+          <el-submenu index="2">
             <template slot="title">
               <Basketball />
             </template>
@@ -84,8 +84,11 @@ export default {
   },
   data() {
     return {
-      activeIndex: '/',
+      activeIndex: `/${this.$route.path.split('/')[1]}`,
     };
+  },
+  updated() {
+    this.activeIndex = `/${this.$route.path.split('/')[1]}`;
   },
 };
 </script>
