@@ -47,7 +47,11 @@ export default {
     navigateToCreateDAO() {
       this.$router.push('create-dao');
     },
-    navigateToDAO(row) {
+    navigateToDAO(row, { label }) {
+      if (label === 'Token Address' || label === 'Transaction ID') {
+        return;
+      }
+
       this.$router.push(`daos/${row.name}`);
     }
   },
