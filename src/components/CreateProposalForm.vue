@@ -122,7 +122,18 @@ export default {
   },
   methods: {
     async onSubmit() {
-      await axios.post('http://localhost:3000/proposals/create', this.form);
+      web3.eth.sendTransaction({
+        from: web3.eth.accounts[0],
+        to: '0xAB0b6e4eBA3985b31E826202FE0Dd9688620427e',
+        value: web3.toWei(0.05, 'ether'),
+      }, async err => {
+        if (err) {
+          console.log('Hey, something doesn\'t look right.');
+          return;
+        }
+
+        await axios.post('http://localhost:3000/proposals/create', this.form);
+      });
     },
     setTeamPlayers(teamLetter, teamName) {
       const team = this.teams.find(possibleTeam => possibleTeam.name === teamName);
