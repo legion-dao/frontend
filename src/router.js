@@ -22,6 +22,16 @@ export default new Router({
       component: () => import(/* webpackChunkName: "dao" */ './views/DAO.vue'),
     },
     {
+      path: '/proposals',
+      name: 'proposals',
+      component: () => import(/* webpackChunkName: "proposals" */ './views/Proposals.vue'),
+    },
+    {
+      path: '/proposals/create',
+      name: 'create-proposal',
+      component: () => import(/* webpackChunkName: "create-proposal" */ './views/CreateProposal.vue'),
+    },
+    {
       path: '/players',
       name: 'players',
       component: () => import(/* webpackChunkName: "players" */ './views/Players.vue'),
