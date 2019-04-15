@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     navigateToCreateProposal() {
-      this.$router.push('proposals/create');
+      this.$router.push('create-proposal');
     },
     navigateToProposal(row, { label }) {
       this.$router.push(`proposals/${row.proposalAddress}`);

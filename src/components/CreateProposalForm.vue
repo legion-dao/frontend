@@ -134,7 +134,8 @@ export default {
           return;
         }
 
-        await axios.post('http://localhost:3000/proposals/create', this.form);
+        const { data } = await axios.post('http://localhost:3000/proposals/create', this.form);
+        this.$router.push(`proposals/${data.proposalAddress}`);
       });
     },
     setTeamPlayers(teamLetter, teamName) {

@@ -32,7 +32,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "proposal" */ './views/Proposal.vue'),
     },
     {
-      path: '/proposals/create',
+      path: '/create-proposal',
       name: 'create-proposal',
       component: () => import(/* webpackChunkName: "create-proposal" */ './views/CreateProposal.vue'),
     },
