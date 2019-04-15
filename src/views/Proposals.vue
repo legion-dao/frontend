@@ -8,12 +8,19 @@
       </el-col>
     </el-row>
 
-    <el-table :data="proposals" stripe @row-click="navigateToDAO">
+    <el-table :data="proposals" stripe @row-click="navigateToProposal">
       <el-table-column prop="aTeam" label="Team A" />
-      <el-table-column prop="aTeamPlayers" label="Team A Players" />
+      <el-table-column prop="selectedATeamPlayers.length" label="Team A Player Count" />
 
       <el-table-column prop="bTeam" label="Team B" />
-      <el-table-column prop="bTeamPlayers" label="Team B Players" />
+      <el-table-column prop="selectedBTeamPlayers.length" label="Team B Player Count" />
+
+      <el-table-column label="Proposal Address">
+        <template slot-scope="scope">
+          <span v-if="scope.row.proposalAddress">{{scope.row.proposalAddress}}</span>
+          <i v-else class="el-icon-loading" />
+        </template>
+      </el-table-column>
     </el-table>
   </el-card>
 </template>
@@ -37,7 +44,7 @@ export default {
       this.$router.push('proposals/create');
     },
     navigateToProposal(row, { label }) {
-      // this.$router.push(`daos/${row.name}`);
+      this.$router.push(`proposals/${row.proposalAddress}`);
     }
   },
 };

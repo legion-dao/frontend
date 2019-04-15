@@ -106,6 +106,7 @@ export default {
   data() {
     return {
       form: {
+        creator: '',
         aTeam: '',
         bTeam: '',
         aTeamPlayers: [],
@@ -117,13 +118,14 @@ export default {
     };
   },
   async mounted() {
+    this.form.creator = web3.eth.accounts[0];
     const { data } = await axios.get('http://localhost:3000/daos');
     this.teams = data;
   },
   methods: {
     async onSubmit() {
       web3.eth.sendTransaction({
-        from: web3.eth.accounts[0],
+        from: this.form.creator,
         to: '0xAB0b6e4eBA3985b31E826202FE0Dd9688620427e',
         value: web3.toWei(0.05, 'ether'),
       }, async err => {
