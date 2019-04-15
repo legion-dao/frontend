@@ -70,7 +70,7 @@ export default {
       web3.eth.sendTransaction({
         from: web3.eth.accounts[0],
         to: '0xAB0b6e4eBA3985b31E826202FE0Dd9688620427e',
-        value: web3.toWei(0.05, 'ether'),
+        value: web3.toWei(0.005, 'ether'),
       }, async err => {
         if (err) {
           console.log('The polls are busted.');

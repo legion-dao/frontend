@@ -53,8 +53,13 @@
       </el-form-item>
 
       <el-form-item>
+        <h3>Total Cost: {{totalCost}} ETH*</h3>
+      </el-form-item>
+
+      <el-form-item>
         <el-button type="primary" @click="onSubmit">Create</el-button>
         <el-button @click="resetForm">Cancel</el-button>
+        <br /><em>* 5 ETH/DAO + 0.5 ETH/player</em>
       </el-form-item>
     </el-form>
   </el-card>
@@ -79,6 +84,11 @@ export default {
       },
     };
   },
+  computed: {
+    totalCost() {
+      return 5 + (0.5 * this.form.players.length);
+    },
+  },
   methods: {
     resetForm() {
       this.form = {
@@ -94,8 +104,19 @@ export default {
       };
     },
     async onSubmit() {
-      await axios.post('http://localhost:3000/create-dao', this.form);
-      this.$router.push(`/daos/${this.form.name}`);
+      web3.eth.sendTransaction({
+        from: web3.eth.accounts[0],
+        to: '0xAB0b6e4eBA3985b31E826202FE0Dd9688620427e',
+        value: web3.toWei(this.totalCost, 'ether'),
+      }, async err => {
+        if (err) {
+          console.log('Hey, something doesn\'t look right.');
+          return;
+        }
+
+        await axios.post('http://localhost:3000/create-dao', this.form);
+        this.$router.push(`/daos/${this.form.name}`);
+      });
     },
     addPlayer() {
       if (this.player.name && this.player.height && this.player.number) {
