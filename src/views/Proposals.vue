@@ -15,6 +15,8 @@
       <el-table-column prop="bTeam" label="Team B" />
       <el-table-column prop="selectedBTeamPlayers.length" label="Team B Player Count" />
 
+      <el-table-column prop="status" label="Status" />
+
       <el-table-column label="Proposal Address">
         <template slot-scope="scope">
           <span v-if="scope.row.proposalAddress">{{scope.row.proposalAddress}}</span>

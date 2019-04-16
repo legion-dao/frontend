@@ -37,6 +37,13 @@
         </el-row>
       </el-col>
     </el-row>
+
+    <el-row>
+      <el-button v-if="proposal.status === 'Open'" type="primary" @click="completeProposal">
+        Complete Proposal
+      </el-button>
+      <span v-else>Proposal is closed!</span>
+    </el-row>
   </el-card>
 </template>
 
@@ -68,7 +75,7 @@ export default {
   methods: {
     vote(side) {
       web3.eth.sendTransaction({
-        from: web3.eth.accounts[0],
+        from: web3.eth.accounts[2],
         to: '0xAB0b6e4eBA3985b31E826202FE0Dd9688620427e',
         value: web3.toWei(0.005, 'ether'),
       }, async err => {
@@ -84,6 +91,20 @@ export default {
         } else {
           this.proposal.negativeVotes++;
         }
+      });
+    },
+    completeProposal() {
+      web3.eth.sendTransaction({
+        from: web3.eth.accounts[2],
+        to: '0xAB0b6e4eBA3985b31E826202FE0Dd9688620427e',
+        value: web3.toWei(0.005, 'ether'),
+      }, async err => {
+        if (err) {
+          console.log('Cannot complete, sad times.');
+          return;
+        }
+
+        await axios.post('http://localhost:3000/proposals/close', { proposal: this.proposal });
       });
     },
   },
