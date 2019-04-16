@@ -37,6 +37,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "create-proposal" */ './views/CreateProposal.vue'),
     },
     {
+      path: '/players/:id',
+      name: 'player',
+      component: () => import(/* webpackChunkName: "player" */ './views/Player.vue'),
+    },
+    {
       path: '/players',
       name: 'players',
       component: () => import(/* webpackChunkName: "players" */ './views/Players.vue'),

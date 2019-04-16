@@ -9,7 +9,12 @@
     </el-row>
 
     <el-table :data="players" stripe>
-      <el-table-column prop="name" label="Name" />
+      <el-table-column label="Name">
+        <template slot-scope="scope">
+          <router-link :to="`players/${scope.row.tokenId}`">{{scope.row.name}}</router-link>
+        </template>
+      </el-table-column>
+
       <el-table-column prop="height" label="Height" />
       <el-table-column prop="number" label="Number" />
 

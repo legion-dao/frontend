@@ -105,6 +105,7 @@ export default {
         }
 
         await axios.post('http://localhost:3000/proposals/close', { proposal: this.proposal });
+        this.proposal.status = 'Closed';
       });
     },
   },
