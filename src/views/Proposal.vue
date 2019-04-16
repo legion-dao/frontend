@@ -28,11 +28,11 @@
         </el-row>
         <el-row type="flex">
           <el-col>
-            votes for: 0
+            votes for: {{proposal.positiveVotes}}
           </el-col>
 
           <el-col>
-            votes against: 0
+            votes against: {{proposal.negativeVotes}}
           </el-col>
         </el-row>
       </el-col>
@@ -78,6 +78,12 @@ export default {
         }
 
         await axios.post('http://localhost:3000/proposals/vote', { proposal: this.proposal, vote: side === 'for' });
+
+        if (side === 'for') {
+          this.proposal.positiveVotes++;
+        } else {
+          this.proposal.negativeVotes++;
+        }
       });
     },
   },
