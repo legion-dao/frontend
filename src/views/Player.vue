@@ -2,7 +2,7 @@
   <el-card>
     <el-row type="flex">
       <h1>{{ player.name }}</h1>
-      <h2 :style="{ marginLeft: '20px' }">{{ player.number }}</h2>
+      <h2 :style="{ marginLeft: '20px' }">#{{ player.number }} on the <router-link :to="`/daos/${player.dao}`">{{ player.dao }}</router-link></h2>
     </el-row>
 
     <h2>Trades:</h2>

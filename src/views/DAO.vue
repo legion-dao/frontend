@@ -11,7 +11,7 @@
       <el-table-column prop="number" label="Jersey Number"></el-table-column>
       <el-table-column>
         <template slot-scope="scope">
-          <el-button @click="removePlayer(scope.$index)" type="text" size="small">
+          <el-button @click="tradePlayer(scope.$index)" type="text" size="small">
             Trade Player
           </el-button>
         </template>
@@ -33,6 +33,11 @@ export default {
   async mounted() {
     const { data } = await axios.get(`http://localhost:3000/daos/${this.$route.params.id}`);
     this.dao = data;
+  },
+  methods: {
+    tradePlayer() {
+      this.$router.push('/create-proposal');
+    },
   },
 };
 </script>
