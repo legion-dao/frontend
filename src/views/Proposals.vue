@@ -10,10 +10,20 @@
 
     <el-table :data="proposals" stripe @row-click="navigateToProposal">
       <el-table-column prop="aTeam" label="Team A" />
-      <el-table-column prop="selectedATeamPlayers.length" label="Team A Player Count" />
+
+      <el-table-column label="Team A Player">
+        <template slot-scope="scope">
+          {{ scope.row.selectedATeamPlayers[0].name }}
+        </template>
+      </el-table-column>
 
       <el-table-column prop="bTeam" label="Team B" />
-      <el-table-column prop="selectedBTeamPlayers.length" label="Team B Player Count" />
+      
+      <el-table-column label="Team B Player">
+        <template slot-scope="scope">
+          {{ scope.row.selectedBTeamPlayers[0].name }}
+        </template>
+      </el-table-column>
 
       <el-table-column prop="status" label="Status" />
 
